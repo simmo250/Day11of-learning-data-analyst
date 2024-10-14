@@ -1,0 +1,37 @@
+create database mysql_demo; 
+use mysql_demo; 
+show databases; 
+create table cust(
+id int auto_increment primary key,
+firstname varchar(50) not null,
+lastname varchar(50),
+email varchar(100) unique,
+phone varchar(19) unique 
+);
+
+insert into cust(firstname, lastname, email, phone)
+values( 'John', 'Verma', 'john@1234', '123-23-432'),
+	   ('Sone', 'Sharma', null, '234-34-340'),
+       ('Deepa', 'Verma', 'Deepa@345', NULL),
+       ('Emily', NULL, 'emily@123', '98-987-678'),
+       ('Robert', 'William', 'robert@1234', '098-45-678'),
+       ('Shalja', NULL, 'shalja@345', '110-789-345');   
+       
+select * from cust; 
+
+select * from cust where lastname IS null; 
+
+select * from cust where phone IS null;      
+
+select * from cust where email IS null;  
+
+select * from cust; 
+
+select * from cust where phone IS NOT null;  
+
+select * from cust where lastname IS NOT null;  
+
+-- coalesce and ifnull 
+select coalesce(lastname, 'default_value') FROM cust;
+
+
